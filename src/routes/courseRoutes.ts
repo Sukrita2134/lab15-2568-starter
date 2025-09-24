@@ -107,6 +107,7 @@ router.post("/courses", (req: Request, res: Response) => {
     const result = zCoursePostBody.safeParse(body); // check zod
     if (!result.success) {
       return res.status(400).json({
+        success: false,
         message: "Validation failed",
         errors: result.error.issues[0]?.message,
       });
